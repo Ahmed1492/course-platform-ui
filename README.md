@@ -1,4 +1,4 @@
-# IT-Legend — Course Details Page
+# Course Details Page
 
 A Next.js 16 course platform UI built as a frontend task for IT-Legend.
 
