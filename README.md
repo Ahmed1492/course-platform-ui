@@ -2,9 +2,7 @@
 
 A Next.js 16 course platform UI built as a frontend task for IT-Legend.
 
-## Live Demo
 
-Deployed on Vercel: _add your URL after deploying_
 
 ---
 
