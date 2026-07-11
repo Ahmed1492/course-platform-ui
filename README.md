@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IT-Legend — Course Details Page
+
+A Next.js 16 course platform UI built as a frontend task for IT-Legend.
+
+## Live Demo
+
+Deployed on Vercel: _add your URL after deploying_
+
+---
+
+## Features
+
+- **Course Player** — custom HTML5 video player with play/pause, progress scrubbing, volume, fullscreen, and wide mode
+- **Sticky Player on Mobile** — player sticks to the top while scrolling (YouTube-style)
+- **Course Topics Sidebar** — collapsible week sections with lesson list, badges, and lock icons
+- **Course Progress** — animated progress bar that fills on scroll, with student level and XP
+- **Exam Popup** — full-screen quiz with timer, question navigator, session-persisted progress, and results screen
+- **PDF / Reference Files Popup** — file browser with download support
+- **Ask a Question Popup** — session-persisted draft textarea
+- **Leaderboard Popup** — podium + ranked list with motivational messages from م. علي شاهين based on student progress
+- **Comments Section** — YouTube-style auto-scrolling comment list with new comment animation
+- **Mobile Nav Bar** — Curriculum, Comments, Ask Question, Leaderboard icons under the player
+- **Skeleton Loading** — full-page skeleton shown for 2 seconds on load
+- **Scroll Animations** — fade/slide-in animations triggered by IntersectionObserver
+- **Hover Effects** — on all interactive elements
+- **Responsive** — fully responsive across mobile, tablet, and desktop
+
+---
+
+## Tech Stack
+
+| Tool | Version |
+|---|---|
+| Next.js | 16 |
+| React | 19 |
+| TypeScript | 5 |
+| Tailwind CSS | 4 |
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/course-details](http://localhost:3000/course-details)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy to Vercel
 
-## Learn More
+1. Push to GitHub
+2. Import the repo at [vercel.com/new](https://vercel.com/new)
+3. Vercel auto-detects Next.js — click **Deploy**
 
-To learn more about Next.js, take a look at the following resources:
+No environment variables required.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+├── course-details/
+│   ├── page.tsx                  # Route entry point
+│   ├── CoursePageClient.tsx      # Main layout + state (wide mode, exam mode)
+│   └── components/
+│       ├── CoursePlayer.tsx      # Video player with sticky + fullscreen
+│       ├── CourseVideo.tsx       # Player wrapper + social icons + mobile nav
+│       ├── CourseMaterials.tsx   # Stats grid (duration, lessons, enrolled, language)
+│       ├── CourseTopics.tsx      # Sidebar: progress + collapsible week sections
+│       ├── Comments.tsx          # Auto-scroll comment list
+│       ├── Breadcrumb.tsx        # Navigation breadcrumb
+│       ├── CourseSkeleton.tsx    # Loading skeleton
+│       ├── ExamPopup.tsx         # Quiz popup with timer + session progress
+│       ├── ExamView.tsx          # Inline exam view (alternative)
+│       ├── PdfPopup.tsx          # Reference files browser popup
+│       ├── AskQuestionPopup.tsx  # Ask question with session draft
+│       └── LeaderboardPopup.tsx  # Leaderboard with coach messages
+│   └── hooks/
+│       └── useScrollReveal.ts    # IntersectionObserver scroll animation hook
+├── globals.css                   # Global styles + keyframes
+└── layout.tsx                    # Root layout with metadata
+```
